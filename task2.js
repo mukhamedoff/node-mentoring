@@ -1,8 +1,8 @@
-const csvFilePath='./csv/nodejs-hw1-ex1.csv';
-const csv=require('csvtojson');
-const { Transform  } = require('stream');
-const fs = require('fs');
+import csv from "csvtojson";
+import { Transform  } from "stream";
+import fs from "fs";
 
+const csvFilePath = './csv/nodejs-hw1-ex1.csv';
 const transformData = (chunk) => {
     let data = {};
     let json = JSON.parse(chunk);
