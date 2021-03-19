@@ -26,6 +26,6 @@ readStream.on('error', error => console.log(error));
 const writeStream = fs.createWriteStream("test.txt");
 writeStream.on('error', error => console.log(error));
 
-readStream.pipe(csv())
-    .pipe(transformStream)
+readStream.pipe(csv()).on('error', error => console.log(error))
+    .pipe(transformStream).on('error', error => console.log(error))
     .pipe(writeStream);
