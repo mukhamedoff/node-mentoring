@@ -20,8 +20,11 @@ const transformStream = new Transform({
     }
 });
 
-const readStream=fs.createReadStream(csvFilePath);
+const readStream = fs.createReadStream(csvFilePath);
 
-const writeStream=fs.createWriteStream("test.txt");
+const writeStream = fs.createWriteStream("test.txt");
 
-readStream.pipe(csv()).pipe(transformStream).pipe(writeStream);
+readStream.pipe(csv())
+    .pipe(transformStream)
+    .pipe(writeStream)
+    .on('error', error => console.log(error));
